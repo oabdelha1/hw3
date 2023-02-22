@@ -2,6 +2,7 @@
 #define LLREC_H
 #ifndef NULL
 #define NULL 0
+#include <iostream>
 #endif
 
 /**
@@ -69,6 +70,7 @@ void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot);
  *   may change [i.e. be filtered])
  *
  */
+
 template <typename Comp>
 Node* llfilter(Node* head, Comp pred);
 
@@ -83,8 +85,18 @@ Node* llfilter(Node* head, Comp pred)
     //*********************************************
     // Provide your implementation below
     //*********************************************
-
-
+    std::cout << head ->val << std::endl;
+    if (head == nullptr){
+        return head;
+    }
+    Node* temp = head->next;
+    if (pred(head->val)){
+        delete head;
+        head = temp;
+    }
+    llfilter(temp, pred);
+    return head;
 }
+
 
 #endif
