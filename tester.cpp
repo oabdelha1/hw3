@@ -22,18 +22,19 @@ int main(){
     Node* b = new Node(2, c);
     Node* a = new Node(1, b);
 
-    Node* temp = a;
-    while (temp != nullptr){
-        cout << temp->val << endl;
-        temp = temp->next;
+    Node* temp1 = a;
+    while (temp1 != nullptr){
+        cout << temp1->val << endl;
+        temp1 = temp1->next;
     }
 
     Odd filter;
 
-    temp = llfilter(a, filter);
+    Node* temp2 = llfilter(a, filter);
 
-    while (temp!=nullptr){
-        cout << temp->val << endl;
+    while (temp2!=nullptr){
+        cout << temp2->val << endl;
+        temp2 = temp2->next;
     }
 
 

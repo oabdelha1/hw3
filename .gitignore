@@ -3,3 +3,5 @@ llrec-test
 test
 stack_tester.cpp
 hw3_tests.tar.gz
+heap_tester.cpp
+heaptest
