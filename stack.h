@@ -23,12 +23,12 @@ public:
     const T& top() const; // throws std::underflow_error if empty
     // Add other members only if necessary
 private:
-    size_t ticker;
+    //size_t ticker;
 };
 
 template <typename T>
 Stack<T>::Stack() : std::vector<T>() {
-    ticker = 0;
+    //ticker = 0;
 }
 
 template<typename T>
@@ -39,22 +39,33 @@ Stack<T>::~Stack() {
 template <typename T>
 bool Stack<T>::empty() const{
 
-    return this->size() == ticker;
+    return  size() == 0;
 }
 
 template <typename T>
 size_t Stack<T>::size() const {
-    return std::vector<T>::size() - ticker;
+    return std::vector<T>::size(); //- ticker;
 }
 
 template <typename T>
 void Stack<T>::pop(){
-    ticker++;
+    if (empty()){
+        throw std::underflow_error("empty");
+    }
+
+    //ticker++;
+
+    std::vector<T>::pop_back();
 }
 
 template <typename T>
 const T& Stack<T>::top() const{
-    return std::vector<T>::at(ticker);
+    if (empty()){
+        throw std::underflow_error("empty");
+    }
+
+    //return std::vector<T>::at(ticker);
+    return std::vector<T>::back();
 }
 
 template <typename T>
