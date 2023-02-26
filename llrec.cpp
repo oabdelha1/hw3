@@ -9,8 +9,11 @@ using namespace std;
 void llpivot(Node *&head, Node *&smaller, Node *&larger, int pivot) {
 
     if (head == nullptr ){
+        smaller = nullptr;
+        larger = nullptr;
         return;
     }
+
     Node* temp = head->next;
     //cout << "Before" << head->val << endl;
     llpivot(temp, smaller, larger, pivot);

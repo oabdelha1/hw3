@@ -39,14 +39,14 @@ int main(){
 
 
 
-    /*
+
     Node* smaller = nullptr;
     Node* larger = nullptr;
 
     llpivot(a, smaller, larger, 5);
 
 
-    temp = smaller;
+    Node * temp = smaller;
     cout << "Smaller" << endl;
     while (temp!= nullptr){
         cout << temp->val << endl;
@@ -59,7 +59,22 @@ int main(){
         cout << temp->val << endl;
         temp = temp->next;
     }
-     */
+
+
+    cout << endl << "TESTS SATURDAY" << endl;
+
+    Node* empty = nullptr;
+    Node* x;
+    Node* y;
+
+    cout << "X = " << x << endl;
+    cout << "y = " << y << endl;
+
+    llpivot(empty, x, y, 5);
+
+    cout << "Head: " << empty << endl;
+    cout << "x = " << x << endl;
+    cout << "y " << y << endl;
 
     return 0;
 }
