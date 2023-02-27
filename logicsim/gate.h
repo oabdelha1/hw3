@@ -42,4 +42,11 @@ public:
     Event* update(uint64_t);
 };
 
+class XOr2Gate : public Gate
+{
+  public:
+    XOr2Gate(Wire*, Wire*, Wire*);
+    Event* update(uint64_t);
+};
+
 #endif
