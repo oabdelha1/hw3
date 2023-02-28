@@ -140,9 +140,9 @@ void Heap<T, PComparator>::heapify(int top) {
     if (childIndex >= size()) return;
     for (size_t i = 0; i < m; i++){
         if ( defaultChild + i >= size()){
-
+            break;
         }
-        else if (!compare(data[childIndex], data[defaultChild+i])){
+        if (compare(data[defaultChild+i], data[childIndex])){
             //std::cout << "Current and Other: " << data[childIndex] << " " << data[defaultChild + i] << " at indexes " << childIndex <<" and " << defaultChild+i << std::endl;
             childIndex = defaultChild+i;
         }
@@ -150,20 +150,16 @@ void Heap<T, PComparator>::heapify(int top) {
     }
 
     //std::cout << "Final child index " << childIndex << std::endl;
-
-    T topData = data[top];
-    T chiData = data[childIndex];
-    bool lower = !compare(topData, chiData);
+//    T topData = data[top];
+//    T chiData = data[childIndex];
+//    bool lower = !compare(topData, chiData);
 
     //std::cout << std::boolalpha << data[top] << " > " << chiData << " is " << lower << std::endl;
 
-    if (lower){
+    if (compare(data[childIndex], data[top])){
         std::swap(data[top], data[childIndex]);
         //print();
         heapify(childIndex);
-    }
-    else{
-        return;
     }
 
 }
@@ -171,9 +167,9 @@ void Heap<T, PComparator>::heapify(int top) {
 template <typename T, typename PComparator>
 void Heap<T, PComparator>::push(const T& item){
     //std::cout << "Push instantiating" << std::endl;
-    T val = item;
+    // T val = item;
     //std::cout << "Push pushing back" << std::endl;
-    data.push_back(val);
+    data.push_back(item);
     //std::cout << "Push rolling" << std::endl;
     roll();
     //std::cout << "Push done" << std::endl;
@@ -204,7 +200,7 @@ void Heap<T, PComparator>::roll(){
         cur = data[curIndex];
         par = data[parIndex];
 
-        compare(cur, par);
+        higher = compare(cur, par);
         //std::cout << "Current: " << cur << " at " << curIndex << std::endl;
         //std::cout << "Parent: " << par << " at " << parIndex << std:: endl;
     }
