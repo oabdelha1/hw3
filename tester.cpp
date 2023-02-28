@@ -22,6 +22,23 @@ int main(){
     Node* b = new Node(2, c);
     Node* a = new Node(1, b);
 
+    Node* less;
+    Node* more;
+
+    Node* tick = a;
+    while (tick != nullptr){
+        cout << tick->val << " at: " << tick << endl;
+        tick = tick->next;
+    }
+    cout << "less at: " << less << endl;
+    cout << "more at: " << more << endl;
+
+    llpivot(a, less, more, 5);
+
+
+
+
+    /*
     Node* temp1 = a;
     while (temp1 != nullptr){
         cout << temp1->val << endl;
@@ -75,6 +92,6 @@ int main(){
     cout << "Head: " << empty << endl;
     cout << "x = " << x << endl;
     cout << "y " << y << endl;
-
+    */
     return 0;
 }
